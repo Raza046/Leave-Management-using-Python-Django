@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<p style="margin-top: 10px;"> Welcome Admin <strong>{{user.username}}</strong> </p>
+
+<center><a href="ShowTapp" style="margin-top:50px;margin-bottom:50px; " class="btn btn-student btn-lg" role="button">Show Teachers Applications</a></center>
+
+
+{% endblock %}
+

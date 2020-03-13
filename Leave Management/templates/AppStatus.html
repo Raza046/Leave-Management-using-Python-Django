@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+Welcome Student {{user.username}}
+
+
+<div class="row">
+
+    <div class="col-md-6" style="margin-left: 200px;">
+    
+    <table>
+        <thead>
+            <tr>
+              <th><strong> Response </strong></th>
+            </tr>
+          </thead>
+
+          <tbody>
+    
+            <tr>
+
+            <td>
+
+                {% for s in app %}
+
+                {% if s.status == 'reject' %}
+                <p style="margin-top:15px;"><b style="color:red;">Application leave has been {{ s.status }}ed by  Sir {{s.to_teacher}} </b></p>
+
+                {% elif s.status == 'accept' %}
+                <p style="margin-top:15px;"><b style="color: green;">Application leave has been {{ s.status }}ed by  Sir {{s.to_teacher}} </b></p>
+
+                {% elif s.status == None %}
+                <p style="margin-top:15px;"><b>Application leave is not responded yet by  Sir {{s.to_teacher}} </b></p>
+
+                {% endif %}
+
+                <br>
+
+                {% endfor %}
+
+            </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

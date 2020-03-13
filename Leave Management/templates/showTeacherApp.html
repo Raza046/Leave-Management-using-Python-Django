@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p style="margin-top: 10px;"> Welcome Admin <strong>{{user.username}}</strong> </p>
+
+
+<div class="row" style="margin-top:30px;margin-bottom:50px;">
+
+    <div class="col-md-12">
+
+        {% for s in app %}
+
+          <form method="POST">
+
+            {%  csrf_token  %}
+
+            <center style="margin-left:-120px;margin-top:70px "><strong>{{ s.content }} by teacher {{s.user}}.</strong><strong style="margin-left:60px;">Your Response : </strong> This application is {{ s.status }}</center>
+
+            <div class="row">
+        
+                <div class="col-md-6" style="margin-left:200px;">
+            
+                    <input class="btn btn-student btn-lg" style="background-color:green;" type="submit" value="accept" name="status">
+                    
+                </div>
+            
+                <div class="col-md-6" style="margin-left: -200px;">
+            
+                    <input class="btn btn-student btn-lg" style="background-color:red;height:50px; width: 100px;" type="submit" value="reject" name="status">
+
+                </div>
+            
+                <input type="hidden" name="answer" value="{{ s.id }}">
+
+
+        </div>
+
+            </form>    
+
+          {% endfor %}
+
+
+        </div>
+    </div>
+
+<br><br>
+
+{% endblock %}

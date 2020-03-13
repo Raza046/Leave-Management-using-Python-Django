@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+<div class="row box2">
+
+	<div class="col-md-5 box1">
+
+	<center><h2 style="font-family:bold;color:black;margin-bottom:50px">Send Leave Application </h2></center>
+	<br><br>
+
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success">Submit Application</button>
+      </form>
+
+    </div>
+
+</div>
+
+
+{% endblock %}
